@@ -5,7 +5,7 @@ properties([
         choice(name: 'GithubRepo', choices: ['https://github.com/prashant4875/Netflix-clone.git'], description: 'Select Github repo to checkout'),
         gitParameter(
             name: 'Branch',
-            branchFilter: "origin/develop",
+            branchFilter: "origin/develop|origin/release.*",
             defaultValue: 'master',
             sortMode: 'DESCENDING_SMART',
             type: 'PT_BRANCH',
