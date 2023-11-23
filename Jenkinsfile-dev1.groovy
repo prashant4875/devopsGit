@@ -2,7 +2,7 @@
 properties([
     parameters([
         choice(name: 'Environment', choices: ['dev', 'sit2'], description: 'The target environment'),
-        choice(name: 'GithubRepo', choices: ['https://github.com/prashant4875/two-tier-flask-app.git'], description: 'Select Github repo to checkout'),
+        choice(name: 'GithubRepo', choices: ['https://github.com/prashant4875/two-tier-flask-app'], description: 'Select Github repo to checkout'),
         gitParameter(
             name: 'Branch',
             branchFilter: "origin/develop|origin/release.*",
