@@ -1,4 +1,4 @@
-@Library('shared') _
+// @Library('shared') _
 properties([
     parameters([
         choice(name: 'Environment', choices: ['dev', 'sit2'], description: 'The target environment'),
@@ -13,4 +13,22 @@ properties([
         )
     ])
 ])
-dev()
+// dev()
+pipeline{
+    agent any
+
+    stages{
+        stage('Checkout Stage') {
+                steps{
+                    script{
+                        echo "${params.Environment}"
+                        echo "${params.GithubRepo}"
+                        def release_branch = "${params.Branch}"
+                        def release = release_branch.substring(7)
+                        git branch: 'develop', url: "${params.GithubRepo}"
+                        sh "git checkout develop"
+                    }
+                }
+            }
+    }
+}
